@@ -35,7 +35,7 @@ space complexity: 1
 
 public class Solution {
   public int firstOccur(int[] array, int target) {
-// check the input
+   // check the input
     if (array == null || array.length == 0) {
     return -1;  
 }
@@ -56,10 +56,10 @@ while (left + 1 < right) {
 }
 
 // check the border
-if (array[left] == target) {
-  return left;
-} else if (array[right] == target) {
+if (array[right] == target) {
   return right;
+} else if (array[left] == target) {
+  return left;
 }
 return -1;
 
