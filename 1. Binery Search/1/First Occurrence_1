@@ -1,0 +1,67 @@
+Given a target integer T and an integer array A sorted in ascending order, find the index of the first occurrence of T in A or return -1 if there is no such index.
+Assumptions
+•	There can be duplicate elements in the array.
+Examples
+•	A = {1, 2, 3}, T = 2, return 1
+•	A = {1, 2, 3}, T = 4, return -1
+•	A = {1, 2, 2, 2, 3}, T = 2, return 1
+Corner Cases
+•	What if A is null or A of zero length? We should return -1 in this case.
+
+input: target number T – int target;
+	 integer array A – int array;
+	 if (array == null || array.lenght == 0) {
+	return -1;	
+}
+
+output: first occurrence index – int index;
+
+algorithm: binary search
+
+variable: left border – int left;
+		right border – int right;
+		middle index – int mid;
+
+data structure:
+
+corner case: LR
+
+time complexity: log(n)
+space complexity: 1
+
+
+
+
+
+public class Solution {
+  public int firstOccur(int[] array, int target) {
+// check the input
+    if (array == null || array.length == 0) {
+    return -1;  
+}
+
+// create variables
+int left = 0;
+int right = array.length - 1;
+int mid = (left + right) / 2;
+
+// loop 
+while (left + 1 < right) {
+  mid = (left + right) / 2;
+  if (array[mid] < target) {
+  left = mid;
+} else {
+  right = mid;
+}
+}
+
+// check the border
+if (array[left] == target) {
+  return left;
+} else if (array[right] == target) {
+  return right;
+}
+return -1;
+
+  }
+}
