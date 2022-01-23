@@ -1,2 +1,2 @@
 # code
-Algriothm question record
+Algriothm question practice record
